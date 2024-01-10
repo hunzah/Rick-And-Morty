@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react'
-
-import axios from 'axios'
+import { Character } from '@/components/character/Character'
+import { HeadMeta } from '@/components/head-meta/HeadMeta'
 
 const Characters = () => {
-  const [characters, setCharacters] = useState<CharacterType[] | null>(null)
-
-  useEffect(() => {
-    axios
-      .get('https://rickandmortyapi.com/api/character')
-      .then(res => setCharacters(res.data.results))
-  }, [])
-
-  return <>{characters && characters.map(character => character.id)}</>
+  return (
+    <>
+      <HeadMeta title={'Characters'} />
+      <Character />
+    </>
+  )
 }
 
 export default Characters
-
-type CharacterType = {
-  id: number
-}
