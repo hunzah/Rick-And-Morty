@@ -10,10 +10,10 @@ import Link from 'next/link'
 import s from './characters.module.scss'
 
 function Characters() {
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const characters = useCharacters()
+  const [currentPage, setCurrentPage] = useState<number>(3)
+  const characters = useCharacters({ page: currentPage })
 
-  const paginate = (pageNumber: number) => console.log('ya')
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   return (
     <>
