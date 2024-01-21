@@ -11,7 +11,7 @@ export const useCharacter = () => {
 
   useEffect(() => {
     axios
-      .get(`https://rickandmortyapi.com/api/character/${router.query.id}`)
+      .get(`${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/character/${router.query.id}`)
       .then(res => setCharacter(res.data))
   }, [router.query.id])
 

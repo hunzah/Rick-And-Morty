@@ -1,12 +1,24 @@
 import React from 'react'
 
 import { CharacterType, Nullable } from '@/assets/hooks/types'
+import Image from 'next/image'
+
+import s from './characterCard.module.scss'
 
 type PropsType = {
   character: Nullable<CharacterType>
 }
 export const CharacterCard = (props: PropsType) => {
-  const { character } = props
+  if (!props.character) {
+    return null
+  }
+  const { id, image, name, species } = props.character
 
-  return <span>{character && character.id}</span>
+  return (
+    <div className={s.container}>
+      <Image alt={`Picture of- ${name}`} height={300} src={image} width={300} />
+      <span>{name}</span>
+      <span>{id}</span>
+    </div>
+  )
 }

@@ -1,0 +1,62 @@
+.button {
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: var(--font-size-s);
+
+  background-color: black;
+  border: 2px solid white;
+}
+
+.button[data-state='open'] .arrowImg {
+  transform: rotate(180deg);
+}
+
+.button:focus-visible {
+  border: 1px solid var(--color-info-700);
+  outline: 1px solid var(--color-info-700);
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--color-dark-300);
+  border: 2px solid var(--color-dark-100);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  transform-origin: var(--radix-select-content-transform-origin);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: var(--radix-select-trigger-width);
+
+  background-color: var(--color-dark-900);
+  border: 2px solid var(--color-dark-100);
+}
+
+.item {
+  padding: 6px 11px;
+  border: none;
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.7;
+    background: var(--primary-900, #382766);
+  }
+}
+
+.disabled {
+  opacity: 0.4;
+
+  &:hover {
+    background-color: var(--color-dark-900);
+  }
+}
