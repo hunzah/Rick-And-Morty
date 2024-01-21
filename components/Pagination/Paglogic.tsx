@@ -14,7 +14,7 @@ type PropsType = {
   totalElements: number
 }
 
-export const PagLogic = (props: PropsType) => {
+export const Pagination = (props: PropsType) => {
   const { currentPage, elementsPerPage, onChange, setCurrentPage, totalElements } = props
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
