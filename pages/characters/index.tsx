@@ -4,7 +4,7 @@ import { useCharacters } from '@/assets/hooks/useCharacters'
 import { CharacterCard } from '@/components/CharacterCard'
 import { HeadMeta } from '@/components/HeadMeta'
 import { getLayout } from '@/components/Layout'
-import { Pagination } from '@/components/Pagination/Paglogic'
+import { Pagination } from '@/components/Pagination'
 import Link from 'next/link'
 
 import s from './characters.module.scss'
