@@ -15,19 +15,17 @@ type PropsType = {
 }
 
 export const Pagination = (props: PropsType) => {
-  const { currentPage, elementsPerPage, onChange, setCurrentPage, totalElements } = props
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  const { currentPage, elementsPerPage, onChange, totalElements } = props
 
   const totalPages = Math.ceil(totalElements / elementsPerPage)
 
   // Функции для кнопок
   const prev = () => {
-    setCurrentPage(currentPage - 1)
+    onChange(currentPage - 1)
   }
 
   const next = () => {
-    setCurrentPage(currentPage + 1)
+    onChange(currentPage + 1)
   }
 
   const { pageNumbers } = usePagination({ currentPage, totalPages })
@@ -72,7 +70,7 @@ const PrevButton = ({ callback, disabled }: ButtonsPropsType) => {
 const NextButton = ({ callback, disabled }: ButtonsPropsType) => {
   return (
     <button className={s.button} disabled={disabled} onClick={callback}>
-      <Image alt={'Next'} src={arrowRight} />
+      <Image alt={'right-arrow'} src={arrowRight} />
     </button>
   )
 }

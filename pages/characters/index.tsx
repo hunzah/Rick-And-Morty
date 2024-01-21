@@ -18,7 +18,7 @@ function Characters() {
   return (
     <>
       <HeadMeta title={'Characters'} />
-      <main>
+      <div className={s.characters}>
         <div className={s.container}>
           {characters?.results.map(character => (
             <Link href={`/characters/${character.id}`} key={character.id}>
@@ -35,7 +35,7 @@ function Characters() {
             totalElements={characters?.info.count}
           />
         )}
-      </main>
+      </div>
     </>
   )
 }
