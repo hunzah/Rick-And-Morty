@@ -5,11 +5,44 @@
 .list {
   display: flex;
   gap: 8px;
+  align-items: center;
+  justify-content: center;
 
-  li {
+  padding: 0 8px;
+
+  .li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+
     list-style-type: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .selected {
+    background-color: #382766;
   }
 }
+
 .button {
-  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.disabledButton {
+  background-color: #382766;
 }

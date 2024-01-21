@@ -35,14 +35,9 @@ export const Pagination = (props: PropsType) => {
       <PrevButton callback={prev} disabled={currentPage === 1} />
       <ul className={s.list}>
         {pageNumbers.map((number: number | string, i: number) => (
-          <li className={s.li} key={i}>
+          <li className={`${s.li} ${currentPage === number && s.selected}`} key={i}>
             {typeof number === 'number' ? (
-              <a
-                className={currentPage === number ? s.selected : ''}
-                onClick={() => onChange(number)}
-              >
-                {number}
-              </a>
+              <a onClick={() => onChange(number)}>{number}</a>
             ) : (
               <span>{number}</span>
             )}
@@ -61,7 +56,7 @@ type ButtonsPropsType = {
 
 const PrevButton = ({ callback, disabled }: ButtonsPropsType) => {
   return (
-    <button className={s.button} disabled={disabled} onClick={callback}>
+    <button className={`${s.button} ${s.disabledButton}`} disabled={disabled} onClick={callback}>
       <Image alt={'left-arrow'} src={arrowLeft} />
     </button>
   )
@@ -69,7 +64,11 @@ const PrevButton = ({ callback, disabled }: ButtonsPropsType) => {
 
 const NextButton = ({ callback, disabled }: ButtonsPropsType) => {
   return (
-    <button className={s.button} disabled={disabled} onClick={callback}>
+    <button
+      className={`${s.button} ${disabled && s.disabledButton}`}
+      disabled={disabled}
+      onClick={callback}
+    >
       <Image alt={'right-arrow'} src={arrowRight} />
     </button>
   )
