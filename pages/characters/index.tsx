@@ -11,18 +11,38 @@ import Link from 'next/link'
 import s from './characters.module.scss'
 
 function Characters() {
-  const [currentPage, setCurrentPage] = useState<number>(6)
+  const [currentPage, setCurrentPage] = useState<number>(1)
   const [gender, setGender] = useState<string>('')
   const [status, setStatus] = useState<string>('')
-  const characters = useCharacters({ gender, page: currentPage, status })
+  const [name, setName] = useState<string>('')
+  const characters = useCharacters({ gender, name, page: currentPage, status })
 
+  // logic
+  const onSetGender = (gender: string) => {
+    setGender(gender)
+    setCurrentPage(1)
+  }
+
+  const onSetStatus = (status: string) => {
+    setStatus(status)
+    setCurrentPage(1)
+  }
+  const onSearchByName = (name: string) => {
+    setName(name)
+    setCurrentPage(1)
+  }
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  //
 
   return (
     <>
       <HeadMeta title={'Characters'} />
       <div className={s.container}>
-        <FilterCharacters setGender={setGender} setStatus={setStatus} />
+        <FilterCharacters
+          searchByName={onSearchByName}
+          setGender={onSetGender}
+          setStatus={onSetStatus}
+        />
         <div className={s.characters}>
           {characters?.results.map(character => (
             <Link href={`/characters/${character.id}`} key={character.id}>

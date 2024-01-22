@@ -5,11 +5,12 @@ import axios from 'axios'
 
 type PropsType = {
   gender?: string
+  name?: string
   page: number
   status?: string
 }
 export const useCharacters = (props: PropsType): Nullable<CharactersType> => {
-  const { gender, page, status } = props
+  const { gender, name, page, status } = props
   const [characters, setCharacters] = useState<Nullable<CharactersType>>(null)
 
   useEffect(() => {
@@ -22,8 +23,12 @@ export const useCharacters = (props: PropsType): Nullable<CharactersType> => {
     if (status) {
       url += `&status=${status}`
     }
+
+    if (name) {
+      url += `&name=${name}`
+    }
     axios.get(url).then(res => setCharacters(res.data))
-  }, [page, gender, status])
+  }, [page, gender, status, name])
 
   return characters
 }
