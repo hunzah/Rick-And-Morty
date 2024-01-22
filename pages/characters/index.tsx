@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import { getCharacters } from '@/assets/api'
+import { CharactersType } from '@/assets/hooks/types'
 import { useCharacters } from '@/assets/hooks/useCharacters'
 import { CharacterCard } from '@/components/CharacterCard'
 import { FilterCharacters } from '@/components/FilterCharacters'
@@ -10,12 +12,26 @@ import Link from 'next/link'
 
 import s from './characters.module.scss'
 
-function Characters() {
+export const getStaticProps = async () => {
+  const characters = await getCharacters()
+
+  return {
+    props: {
+      characters,
+    },
+  }
+}
+type PropsType = {
+  characters: CharactersType
+}
+
+function Characters(props: PropsType) {
+  const { characters } = props
+
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [gender, setGender] = useState<string>('')
   const [status, setStatus] = useState<string>('')
   const [name, setName] = useState<string>('')
-  const characters = useCharacters({ gender, name, page: currentPage, status })
 
   // logic
   const onSetGender = (gender: string) => {

@@ -16,7 +16,7 @@ export const CharacterCard = (props: PropsType) => {
 
   return (
     <div className={s.container}>
-      <Image alt={`Picture of- ${name}`} height={300} src={image} width={300} />
+      <Image alt={`Picture of- ${name}`} height={300} priority src={image} width={300} />
       <span>{name}</span>
       <span>{id}</span>
     </div>
