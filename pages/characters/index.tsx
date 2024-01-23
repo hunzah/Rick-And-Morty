@@ -33,7 +33,6 @@ type PropsType = {
 
 function Characters(props: PropsType) {
   const { characters } = props
-
   const [filteredCharacters, setFilteredCharacters] =
     useState<ResponseType<CharacterType>>(characters)
   const [currentPage, setCurrentPage] = useState<number>(1)

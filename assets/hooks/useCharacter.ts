@@ -1,19 +1,27 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
-import { CharacterType, Nullable } from '@/assets/api/types'
-import axios from 'axios'
+import { getCharacter } from '@/assets/api'
+import { CharacterType } from '@/assets/api/types'
 import { useRouter } from 'next/router'
 
-export const useCharacter = () => {
-  const [character, setCharacter] = useState<Nullable<CharacterType>>(null)
-
+type PropsType = {
+  setCharacter: (character: CharacterType) => void
+}
+export const useCharacter = ({ setCharacter }: PropsType) => {
   const router = useRouter()
+  const id = router.query.id as string
 
   useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/character/${router.query.id}`)
-      .then(res => setCharacter(res.data))
-  }, [router.query.id])
+    if (id) {
+      const fetchCharacter = async () => {
+        const fetchedCharacter = await getCharacter({ id })
 
-  return character
+        setCharacter(fetchedCharacter)
+      }
+
+      fetchCharacter()
+    }
+  }, [id, setCharacter])
+
+  return {}
 }
