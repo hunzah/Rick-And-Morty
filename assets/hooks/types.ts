@@ -1,13 +1,13 @@
 export type Nullable<T> = T | null
 
-export type CharactersType = {
+export type ResponseType<T> = {
   info: {
     count: number
     next: null | string
     pages: number
     prev: null | string
   }
-  results: CharacterType[]
+  results: T[]
 }
 
 export type CharacterType = {
@@ -29,4 +29,11 @@ export type CharacterType = {
   status: 'Alive' | 'Dead' | 'unknown'
   type: string
   url: string // URL
+}
+
+export type ParamsType = {
+  gender?: string
+  name?: string
+  page: number
+  status?: string
 }
