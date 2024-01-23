@@ -1,34 +1,60 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
-import { CharactersType, Nullable } from '@/assets/hooks/types'
-import axios from 'axios'
+import { getCharacters } from '@/assets/api'
+import { CharacterType, ResponseType } from '@/assets/api/types'
 
 type PropsType = {
-  gender?: string
-  name?: string
-  page: number
-  status?: string
+  currentPage: number
+  gender: string
+  name: string
+  setCurrentPage: (page: number) => void
+  setFilteredCharacters: (characters: ResponseType<CharacterType>) => void
+  setGender: (gender: string) => void
+  setName: (name: string) => void
+  setStatus: (status: string) => void
+  status: string
 }
-export const useCharacters = (props: PropsType): Nullable<CharactersType> => {
-  const { gender, name, page, status } = props
-  const [characters, setCharacters] = useState<Nullable<CharactersType>>(null)
+export const useCharacters = (props: PropsType) => {
+  const {
+    currentPage,
+    gender,
+    name,
+    setCurrentPage,
+    setFilteredCharacters,
+    setGender,
+    setName,
+    setStatus,
+    status,
+  } = props
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
   useEffect(() => {
-    let url = `${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/character?page=${page}`
+    const fetchData = async () => {
+      try {
+        const updatedCharacters = await getCharacters({ gender, name, page: currentPage, status })
 
-    if (gender) {
-      url += `&gender=${gender}`
+        setFilteredCharacters(updatedCharacters)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
     }
 
-    if (status) {
-      url += `&status=${status}`
-    }
+    fetchData()
+  }, [gender, status, name, currentPage, setFilteredCharacters])
 
-    if (name) {
-      url += `&name=${name}`
-    }
-    axios.get(url).then(res => setCharacters(res.data))
-  }, [page, gender, status, name])
+  const filterByGender = (gender: string) => {
+    setGender(gender)
+    setCurrentPage(1)
+  }
 
-  return characters
+  const filterByStatus = (status: string) => {
+    setStatus(status)
+    setCurrentPage(1)
+  }
+  const filterByName = (name: string) => {
+    setName(name)
+    setCurrentPage(1)
+  }
+
+  return { filterByGender, filterByName, filterByStatus, paginate }
 }
