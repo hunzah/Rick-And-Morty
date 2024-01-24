@@ -17,7 +17,12 @@ function Character() {
   return (
     <>
       <HeadMeta title={'Character'} />
+      <span>Episodes</span>
+      {character.episode.map((item, i) => (
+        <div key={i}>{item}</div>
+      ))}
       <CharacterCard character={character && character} />
+      <a href={character.location.url}>{character.location.name}</a>
     </>
   )
 }
