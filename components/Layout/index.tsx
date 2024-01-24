@@ -1,7 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
-import { Navbar } from '@/components/Navbar'
 import { NextPage } from 'next'
+
+import { Navbar } from '../UI/Navbar'
 
 export const Layout: NextPage<PropsWithChildren> = props => {
   const { children } = props

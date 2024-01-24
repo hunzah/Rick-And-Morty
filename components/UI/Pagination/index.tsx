@@ -1,4 +1,4 @@
-import { usePagination } from '@/components/Pagination/assets/hooks/usePagination'
+import { usePagination } from '@/components/UI/Pagination/assets/hooks/usePagination'
 import Image from 'next/image'
 
 import s from './pagination.module.scss'

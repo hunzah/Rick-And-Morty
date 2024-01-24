@@ -1,9 +1,10 @@
 import React from 'react'
 
-import { Input } from '@/components/Input'
-import { Select } from '@/components/Select/Select'
+import { Select } from '@/components/UI/Select/Select'
 
 import s from './filter-characters.module.scss'
+
+import { Input } from '../UI/Input'
 
 type PropsType = {
   searchByName: (name: string) => void
