@@ -16,7 +16,7 @@ export const Input: FC<PropsType> = props => {
 
   useEffect(() => {
     const timerId = setTimeout(() => {
-      inputValue && onChange(inputValue)
+      onChange(inputValue)
     }, debounce)
 
     return () => {

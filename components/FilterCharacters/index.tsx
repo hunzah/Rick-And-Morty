@@ -16,7 +16,7 @@ export const FilterCharacters = (props: PropsType) => {
 
   return (
     <div className={s.container}>
-      <Input alias={'filter-by-name'} debounce={300} onChange={searchByName} />
+      <Input alias={'filter-characters'} debounce={300} onChange={searchByName} />
       <Select
         callback={setGender}
         options={['male', 'female', 'genderless', 'unknown']}

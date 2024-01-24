@@ -1,4 +1,10 @@
-import { CharacterType, LocationType, ParamsType, ResponseType } from '@/assets/api/types'
+import {
+  CharacterType,
+  EpisodeType,
+  LocationType,
+  ParamsType,
+  ResponseType,
+} from '@/assets/api/types'
 import axios from 'axios'
 
 export const getCharacters = async (params?: ParamsType): Promise<ResponseType<CharacterType>> => {
@@ -27,3 +33,18 @@ export const getLocation = async (params: { id: string }): Promise<LocationType>
 
   return await axios.get<LocationType>(url).then(res => res.data)
 }
+
+export const getEpisodes = async (params?: {
+  name: string
+  page: number
+}): Promise<ResponseType<EpisodeType>> => {
+  const url = `${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/episode`
+
+  return await axios.get<ResponseType<EpisodeType>>(url, { params }).then(res => res.data)
+}
+
+// export const getEpisode = async (params: { id: string }): Promise<EpisodeType> => {
+//   const url = `${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/episode/${params.id}`
+//
+//   return await axios.get<EpisodeType>(url).then(res => res.data)
+// }

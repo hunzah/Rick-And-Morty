@@ -1,18 +1,18 @@
 import React from 'react'
 
-import s from './filter-locations.module.scss'
+import s from './filter-episodes.module.scss'
 
 import { Input } from '../UI/Input'
 
 type PropsType = {
   searchByName: (name: string) => void
 }
-export const FilterLocations = (props: PropsType) => {
+export const FilterEpisodes = (props: PropsType) => {
   const { searchByName } = props
 
   return (
     <div className={s.container}>
-      <Input alias={'filter-locations'} debounce={300} onChange={searchByName} />
+      <Input alias={'filter-episodes'} debounce={300} onChange={searchByName} />
     </div>
   )
 }
