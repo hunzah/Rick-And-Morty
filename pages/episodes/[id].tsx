@@ -1,27 +1,26 @@
 import { useState } from 'react'
 
-import { LocationType } from '@/assets/api/types'
-import { useLocation } from '@/assets/hooks/useLocation'
+import { EpisodeType } from '@/assets/api/types'
+import { useEpisode } from '@/assets/hooks/useEpisode'
 import { HeadMeta } from '@/components/HeadMeta'
 import { getLayout } from '@/components/Layout'
-import { LocationCard } from '@/components/UI/LocationCard'
+import { EpisodeCard } from '@/components/UI/EpisodeCard'
 
-function Character() {
-  const [location, setLocation] = useState<LocationType | undefined>(undefined)
+function Episode() {
+  const [episode, setEpisode] = useState<EpisodeType | null>(null)
 
-  useLocation({ setLocation })
-  if (!location) {
+  useEpisode({ setEpisode })
+  if (!episode) {
     return null
   }
 
   return (
     <>
       <HeadMeta title={'Character'} />
-      <LocationCard location={location && location} />
+      <EpisodeCard episode={episode && episode} />
     </>
   )
 }
 
-Character.getLayout = getLayout
-
-export default Character
+Episode.getLayout = getLayout
+export default Episode

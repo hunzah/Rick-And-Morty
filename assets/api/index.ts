@@ -43,8 +43,8 @@ export const getEpisodes = async (params?: {
   return await axios.get<ResponseType<EpisodeType>>(url, { params }).then(res => res.data)
 }
 
-// export const getEpisode = async (params: { id: string }): Promise<EpisodeType> => {
-//   const url = `${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/episode/${params.id}`
-//
-//   return await axios.get<EpisodeType>(url).then(res => res.data)
-// }
+export const getEpisode = async (params: { id: string }): Promise<EpisodeType> => {
+  const url = `${process.env.NEXT_PUBLIC_RICK_AND_MORTY_API_URL}/episode/${params.id}`
+
+  return await axios.get<EpisodeType>(url).then(res => res.data)
+}

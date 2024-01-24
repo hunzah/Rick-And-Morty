@@ -52,7 +52,7 @@ function Episodes(props: PropsType) {
       <div className={s.container}>
         <div className={s.locations}>
           {filteredEpisodes?.results.map(episode => (
-            <Link href={`/episode/${episode.id}`} key={episode.id}>
+            <Link href={`/episodes/${episode.id}`} key={episode.id}>
               <EpisodeCard episode={episode} />
             </Link>
           ))}
