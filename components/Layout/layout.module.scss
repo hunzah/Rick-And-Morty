@@ -2,7 +2,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  max-width: 1400px;
   min-height: 100vh;
+  margin: 0 auto;
+  background-color: green;
 }
 
 .header {
@@ -29,6 +33,7 @@
 }
 
 .footer {
+  padding: 0 24px;
   height: 64px;
   background-color: gold;
 }
