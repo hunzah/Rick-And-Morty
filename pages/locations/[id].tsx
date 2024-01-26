@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { LocationType } from '@/assets/api/types'
 import { useLocation } from '@/assets/hooks/useLocation'
@@ -16,8 +16,15 @@ function Character() {
 
   return (
     <>
-      <HeadMeta title={'Character'} />
+      <HeadMeta title={'Location'} />
       <LocationCard location={location && location} />
+      <div>
+        {location.residents.map((resident, i) => (
+          <a href={`/characters/${resident.match(/\d+$/)}`} key={i}>
+            {resident}
+          </a>
+        ))}
+      </div>
     </>
   )
 }

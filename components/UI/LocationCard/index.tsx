@@ -11,7 +11,7 @@ export const LocationCard = (props: PropsType) => {
   if (!props.location) {
     return null
   }
-  const { dimension, id, name, type } = props.location
+  const { dimension, id, name, residents, type } = props.location
 
   return (
     <div className={s.container}>

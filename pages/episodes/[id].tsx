@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { EpisodeType } from '@/assets/api/types'
 import { useEpisode } from '@/assets/hooks/useEpisode'
@@ -16,8 +16,10 @@ function Episode() {
 
   return (
     <>
-      <HeadMeta title={'Character'} />
+      <HeadMeta title={'Episode'} />
       <EpisodeCard episode={episode && episode} />
+      <br />
+      <a href={'https://www.adultswim.com/videos/rick-and-morty'}> go watch)</a>
     </>
   )
 }

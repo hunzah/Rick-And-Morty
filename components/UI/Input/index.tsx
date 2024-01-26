@@ -22,7 +22,7 @@ export const Input: FC<PropsType> = props => {
     return () => {
       clearTimeout(timerId)
     }
-  }, [debounce, inputValue, onChange])
+  }, [inputValue])
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value)
