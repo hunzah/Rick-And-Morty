@@ -20,7 +20,7 @@ export const Layout: NextPage<PropsWithChildren> = props => {
         <Navbar />
         {children}
       </main>
-      <footer className={s.footer}>footer</footer>
+      <Footer />
     </div>
   )
 }
@@ -32,10 +32,14 @@ export const getLayout = (page: ReactElement) => {
 const Header = () => {
   return (
     <header className={s.header}>
+      <Image alt={'next.svg'} src={nextJsImage} width={80} />
       <Link href={'/'}>
         <Image alt={'Rick_and_Morty.svg'} src={rickAndMortyImage} width={300} />
       </Link>
-      <Image alt={'next.svg'} src={nextJsImage} width={100} />
+      <button>change theme</button>
     </header>
   )
+}
+const Footer = () => {
+  return <footer className={s.footer}>footer</footer>
 }
