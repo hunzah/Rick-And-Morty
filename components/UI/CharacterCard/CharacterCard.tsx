@@ -20,10 +20,10 @@ export const CharacterCard = (props: PropsType) => {
       <Image
         alt={`Picture of- ${name}`}
         className={s.img}
-        height={240}
+        height={216}
         priority
         src={image}
-        width={240}
+        width={216}
       />
       <span className={s.info}>{name}</span>
     </div>

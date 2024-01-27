@@ -48,8 +48,8 @@ function Locations(props: PropsType) {
   return (
     <>
       <HeadMeta title={'Locations'} />
-      <FilterLocations searchByName={filterByName} />
       <div className={s.container}>
+        <FilterLocations searchByName={filterByName} />
         <div className={s.locations}>
           {filteredLocations?.results.map(location => (
             <Link href={`/locations/${location.id}`} key={location.id}>
