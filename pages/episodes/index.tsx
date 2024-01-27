@@ -11,6 +11,7 @@ import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
 
 import s from './epiosodes.module.scss'
+import bs from '@/styles/boilerplate.module.scss'
 
 export const getStaticProps = async () => {
   const episodes = await getEpisodes()
@@ -48,24 +49,24 @@ function Episodes(props: PropsType) {
   return (
     <>
       <HeadMeta title={'Episodes'} />
-      <FilterEpisodes searchByName={filterByName} />
       <div className={s.container}>
-        <div className={s.locations}>
+        <FilterEpisodes searchByName={filterByName} />
+        <div className={s.episodes}>
           {filteredEpisodes?.results.map(episode => (
             <Link href={`/episodes/${episode.id}`} key={episode.id}>
               <EpisodeCard episode={episode} />
             </Link>
           ))}
-          {filteredEpisodes && (
-            <Pagination
-              currentPage={currentPage}
-              elementsPerPage={20}
-              onChange={paginate}
-              setCurrentPage={setCurrentPage}
-              totalElements={filteredEpisodes?.info.count}
-            />
-          )}
         </div>
+        {filteredEpisodes && (
+          <Pagination
+            currentPage={currentPage}
+            elementsPerPage={20}
+            onChange={paginate}
+            setCurrentPage={setCurrentPage}
+            totalElements={filteredEpisodes?.info.count}
+          />
+        )}
       </div>
     </>
   )

@@ -1,0 +1,12 @@
+// mixins.scss
+
+@mixin containerMixin {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding-left: 196px;
+}

@@ -15,10 +15,7 @@ export const LocationCard = (props: PropsType) => {
 
   return (
     <div className={s.container}>
-      <span>{id}</span>
       <span>{name}</span>
-      <span>{dimension}</span>
-      <span>{type}</span>
     </div>
   )
 }

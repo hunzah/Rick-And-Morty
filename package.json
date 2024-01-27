@@ -9,6 +9,7 @@
     "lint": "eslint --ext .jsx,.js,.tsx,.ts --no-error-on-unmatched-pattern --fix && stylelint --fix '**/*.{scss,css}' --allow-empty-input"
   },
   "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.0.8",
     "@radix-ui/react-select": "^2.0.0",
     "axios": "^1.6.5",
     "clsx": "^2.1.0",

@@ -1,7 +1,13 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 80px;
   align-items: center;
   justify-content: center;
+
+  min-width: 300px;
+  min-height: 50px;
+
+  background-color: #382766;
+  border-radius: 8px;
 }

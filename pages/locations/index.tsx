@@ -56,16 +56,16 @@ function Locations(props: PropsType) {
               <LocationCard location={location} />
             </Link>
           ))}
-          {locations && (
-            <Pagination
-              currentPage={currentPage}
-              elementsPerPage={20}
-              onChange={paginate}
-              setCurrentPage={setCurrentPage}
-              totalElements={filteredLocations?.info.count}
-            />
-          )}
         </div>
+        {locations && (
+          <Pagination
+            currentPage={currentPage}
+            elementsPerPage={20}
+            onChange={paginate}
+            setCurrentPage={setCurrentPage}
+            totalElements={filteredLocations?.info.count}
+          />
+        )}
       </div>
     </>
   )

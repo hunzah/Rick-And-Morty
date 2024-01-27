@@ -1,16 +1,12 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  align-items: center;
-  justify-content: space-between;
+@import '@/styles/mixins';
 
-  width: 100%;
+.container {
+  @include containerMixin;
 }
 
 .characters {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
   justify-content: center;
-  width: 80%;
 }

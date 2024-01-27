@@ -18,18 +18,19 @@ function Character() {
   return (
     <>
       <HeadMeta title={'Character'} />
-      <span>Episodes</span>
-      {character.episode.map((item, i) => (
-        <Link
-          href={`/episodes/${character.location.url.match(/\d+$/)}`}
-          key={i}
-          style={{ paddingLeft: '10px' }}
-        >
-          Эпизод: {item.match(/\d+$/)}
-        </Link>
-      ))}
+
       <CharacterCard character={character && character} />
-      <CharacterLocationInfo character={character} />
+      {/*<CharacterLocationInfo character={character} />*/}
+      {/*<span>Episodes</span>*/}
+      {/*{character.episode.map((item, i) => (*/}
+      {/*  <Link*/}
+      {/*    href={`/episodes/${character.location.url.match(/\d+$/)}`}*/}
+      {/*    key={i}*/}
+      {/*    style={{ paddingLeft: '10px' }}*/}
+      {/*  >*/}
+      {/*    Эпизод: {item.match(/\d+$/)}*/}
+      {/*  </Link>*/}
+      {/*))}*/}
     </>
   )
 }
