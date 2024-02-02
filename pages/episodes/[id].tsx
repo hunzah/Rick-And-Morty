@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { EpisodeType } from '@/assets/api/types'
 import { useEpisode } from '@/assets/hooks/useEpisode'
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
 import { EpisodeCard } from '@/components/UI/EpisodeCard'
+import { getLayout } from '@/components/UI/Layout'
 
 function Episode() {
   const [episode, setEpisode] = useState<EpisodeType | null>(null)

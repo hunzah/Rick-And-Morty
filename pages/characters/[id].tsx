@@ -3,9 +3,10 @@ import { useState } from 'react'
 import { CharacterType } from '@/assets/api/types'
 import { useCharacter } from '@/assets/hooks/useCharacter'
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
-import { CharacterCard, CharacterLocationInfo } from '@/components/UI/CharacterCard'
-import Link from 'next/link'
+import { CharacterCard } from '@/components/UI/CharacterCard'
+import { getLayout } from '@/components/UI/Layout'
+
+import s from './character.module.scss'
 
 function Character() {
   const [character, setCharacter] = useState<CharacterType | undefined>(undefined)
@@ -19,18 +20,9 @@ function Character() {
     <>
       <HeadMeta title={'Character'} />
 
-      <CharacterCard character={character && character} />
-      {/*<CharacterLocationInfo character={character} />*/}
-      {/*<span>Episodes</span>*/}
-      {/*{character.episode.map((item, i) => (*/}
-      {/*  <Link*/}
-      {/*    href={`/episodes/${character.location.url.match(/\d+$/)}`}*/}
-      {/*    key={i}*/}
-      {/*    style={{ paddingLeft: '10px' }}*/}
-      {/*  >*/}
-      {/*    Эпизод: {item.match(/\d+$/)}*/}
-      {/*  </Link>*/}
-      {/*))}*/}
+      <div className={s.container}>
+        <CharacterCard character={character && character} />
+      </div>
     </>
   )
 }

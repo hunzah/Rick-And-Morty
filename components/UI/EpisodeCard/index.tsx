@@ -15,8 +15,8 @@ export const EpisodeCard = (props: PropsType) => {
 
   return (
     <div className={s.container}>
-      <span>{id}</span>
-      <span>{name}</span>
+      <span className={s.number}>{id}</span>
+      <span className={s.name}>{name}</span>
       {/*<span>{created}</span>*/}
       {/*<span>{url}</span>*/}
     </div>

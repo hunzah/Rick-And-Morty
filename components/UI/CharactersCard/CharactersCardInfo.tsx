@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { CharacterType } from '@/assets/api/types'
+import { linkId } from '@/tools/regexes'
 import Link from 'next/link'
 
 type PropsType = {
@@ -10,7 +11,7 @@ export const CharacterLocationInfo = ({ character }: PropsType) => {
   return (
     <>
       {character.location.name !== 'unknown' ? (
-        <Link href={`/locations/${character.location.url.match(/\d+$/)}`}>
+        <Link href={`/locations/${character.location.url.match(linkId)}`}>
           Находится:
           {character.location.name}
         </Link>
@@ -18,7 +19,7 @@ export const CharacterLocationInfo = ({ character }: PropsType) => {
         <span>Unknown</span>
       )}
       {character.origin.name !== 'unknown' ? (
-        <Link href={`/locations/${character.origin.url.match(/\d+$/)}`}>
+        <Link href={`/locations/${character.origin.url.match(linkId)}`}>
           Рожден:
           {character.origin.name}
         </Link>

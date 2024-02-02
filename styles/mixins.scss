@@ -2,11 +2,52 @@
 
 @mixin containerMixin {
   display: flex;
-  flex-direction: column;
+  flex-flow: column wrap;
   gap: 24px;
   align-items: center;
   justify-content: space-between;
 
   width: 100%;
-  padding-left: 196px;
+  padding: 0 8px 0 196px;
+}
+
+@mixin pressed-effect {
+  box-shadow: 0 0 8px rgb(0 0 0 / 10%);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 0 16px rgb(0 0 0 / 20%);
+  }
+}
+
+@mixin gradient-text-effect($color) {
+  position: relative;
+  z-index: 1;
+
+  background-image: linear-gradient(to right, $color, $color 50%, black 50%);
+  background-position: -100%;
+  background-clip: text;
+  background-size: 200% 100%;
+
+  transition: all 0.3s ease-in-out;
+
+  -webkit-text-fill-color: transparent;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    bottom: -3px;
+    left: 0;
+
+    display: block;
+
+    width: 0;
+    height: 3px;
+
+    background: $color;
+
+    transition: all 0.3s ease-in-out;
+  }
 }

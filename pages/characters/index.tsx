@@ -3,10 +3,10 @@ import { useState } from 'react'
 import { getCharacters } from '@/assets/api'
 import { CharacterType, ResponseType } from '@/assets/api/types'
 import { useCharacters } from '@/assets/hooks/useCharacters'
-import { FilterCharacters } from '@/components/FilterCharacters'
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
-import { CharacterCard } from '@/components/UI/CharacterCard'
+import { CharactersCard } from '@/components/UI/CharactersCard'
+import { FilterCharacters } from '@/components/UI/FilterCharacters'
+import { getLayout } from '@/components/UI/Layout'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
 
@@ -51,6 +51,13 @@ function Characters(props: PropsType) {
     setStatus,
     status,
   })
+  const characterItems = filteredCharacters?.results.map(character => (
+    <li key={character.id}>
+      <Link href={`/characters/${character.id}`}>
+        <CharactersCard character={character} />
+      </Link>
+    </li>
+  ))
 
   return (
     <>
@@ -61,13 +68,7 @@ function Characters(props: PropsType) {
           setGender={filterByGender}
           setStatus={filterByStatus}
         />
-        <div className={s.characters}>
-          {filteredCharacters?.results.map(character => (
-            <Link href={`/characters/${character.id}`} key={character.id}>
-              <CharacterCard character={character} />
-            </Link>
-          ))}
-        </div>
+        <ul className={s.characters}>{characterItems}</ul>
         {characters && (
           <Pagination
             currentPage={currentPage}

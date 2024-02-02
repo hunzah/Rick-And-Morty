@@ -1,5 +1,5 @@
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
+import { getLayout } from '@/components/UI/Layout'
 
 import s from './main.module.scss'
 

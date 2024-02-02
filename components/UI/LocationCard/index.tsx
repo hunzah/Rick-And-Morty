@@ -15,7 +15,9 @@ export const LocationCard = (props: PropsType) => {
 
   return (
     <div className={s.container}>
-      <span className={s.name}>{name}</span>
+      <div className={s.titleWrap}>
+        <span className={s.name}>{name}</span>
+      </div>
       <span>Dimension: {dimension}</span>
       <span>Type: {type}</span>
     </div>

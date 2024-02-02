@@ -9,7 +9,7 @@ import s from './characterCard.module.scss'
 type PropsType = {
   character: Nullable<CharacterType>
 }
-export const CharacterCard = (props: PropsType) => {
+export const CharactersCard = (props: PropsType) => {
   if (!props.character) {
     return null
   }

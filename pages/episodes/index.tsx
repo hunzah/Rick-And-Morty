@@ -3,15 +3,14 @@ import React, { useState } from 'react'
 import { getEpisodes } from '@/assets/api'
 import { EpisodeType, ResponseType } from '@/assets/api/types'
 import { useEpisodes } from '@/assets/hooks/useEpisodes'
-import { FilterEpisodes } from '@/components/FilterEpisodes'
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
 import { EpisodeCard } from '@/components/UI/EpisodeCard'
+import { FilterEpisodes } from '@/components/UI/FilterEpisodes'
+import { getLayout } from '@/components/UI/Layout'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
 
 import s from './epiosodes.module.scss'
-import bs from '@/styles/boilerplate.module.scss'
 
 export const getStaticProps = async () => {
   const episodes = await getEpisodes()
@@ -46,18 +45,20 @@ function Episodes(props: PropsType) {
     setName,
   })
 
+  const episodeItems = filteredEpisodes?.results.map(episode => (
+    <li key={episode.id}>
+      <Link href={`/episodes/${episode.id}`} key={episode.id}>
+        <EpisodeCard episode={episode} />
+      </Link>
+    </li>
+  ))
+
   return (
     <>
       <HeadMeta title={'Episodes'} />
       <div className={s.container}>
         <FilterEpisodes searchByName={filterByName} />
-        <div className={s.episodes}>
-          {filteredEpisodes?.results.map(episode => (
-            <Link href={`/episodes/${episode.id}`} key={episode.id}>
-              <EpisodeCard episode={episode} />
-            </Link>
-          ))}
-        </div>
+        <ul className={s.episodes}>{episodeItems}</ul>
         {filteredEpisodes && (
           <Pagination
             currentPage={currentPage}

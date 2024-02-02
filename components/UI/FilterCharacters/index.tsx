@@ -4,7 +4,7 @@ import { Select } from '@/components/UI/Select/Select'
 
 import s from './filter-characters.module.scss'
 
-import { Input } from '../UI/Input'
+import { Input } from '../Input'
 
 type PropsType = {
   searchByName: (name: string) => void

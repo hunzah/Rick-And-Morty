@@ -3,3 +3,10 @@
 .container {
   @include containerMixin;
 }
+
+.locations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}

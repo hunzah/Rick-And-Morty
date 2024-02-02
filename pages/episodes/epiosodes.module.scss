@@ -6,9 +6,7 @@
 
 .episodes {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  align-items: flex-start;
-
-  background-color: aqua;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
 }

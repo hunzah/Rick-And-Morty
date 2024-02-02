@@ -2,7 +2,7 @@ import React from 'react'
 
 import s from './filter-episodes.module.scss'
 
-import { Input } from '../UI/Input'
+import { Input } from '../Input'
 
 type PropsType = {
   searchByName: (name: string) => void

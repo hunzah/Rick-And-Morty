@@ -3,9 +3,9 @@ import { useState } from 'react'
 import { getLocations } from '@/assets/api'
 import { LocationType, ResponseType } from '@/assets/api/types'
 import { useLocations } from '@/assets/hooks/useLocations'
-import { FilterLocations } from '@/components/FilterLocations'
 import { HeadMeta } from '@/components/HeadMeta'
-import { getLayout } from '@/components/Layout'
+import { FilterLocations } from '@/components/UI/FilterLocations'
+import { getLayout } from '@/components/UI/Layout'
 import { LocationCard } from '@/components/UI/LocationCard'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
@@ -45,18 +45,20 @@ function Locations(props: PropsType) {
     setName,
   })
 
+  const locationItems = filteredLocations?.results.map(location => (
+    <li key={location.id}>
+      <Link href={`/locations/${location.id}`}>
+        <LocationCard location={location} />
+      </Link>
+    </li>
+  ))
+
   return (
     <>
       <HeadMeta title={'Locations'} />
       <div className={s.container}>
         <FilterLocations searchByName={filterByName} />
-        <div className={s.locations}>
-          {filteredLocations?.results.map(location => (
-            <Link href={`/locations/${location.id}`} key={location.id}>
-              <LocationCard location={location} />
-            </Link>
-          ))}
-        </div>
+        <ul className={s.locations}>{locationItems}</ul>
         {locations && (
           <Pagination
             currentPage={currentPage}

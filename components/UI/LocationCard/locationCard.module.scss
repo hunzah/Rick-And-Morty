@@ -1,6 +1,40 @@
+@import '@/styles/mixins';
+
 .container {
+  @include pressed-effect;
+
   display: flex;
   flex-direction: column;
+
+  width: 384px;
   padding: 8px;
+
   border: #382766 1px solid;
+  border-radius: 8px;
+}
+
+.titleWrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+// animation
+.name {
+  @include gradient-text-effect(red);
+}
+
+.number {
+  @include gradient-text-effect(red);
+}
+
+.container:hover {
+  .name {
+    background-position: 0;
+
+    &::before {
+      width: 100%;
+    }
+  }
 }
