@@ -5,12 +5,13 @@ import { CharacterType, ResponseType } from '@/assets/api/types'
 import { useCharacters } from '@/assets/hooks/useCharacters'
 import { HeadMeta } from '@/components/HeadMeta'
 import { CharactersCard } from '@/components/UI/CharactersCard'
-import { FilterCharacters } from '@/components/UI/FilterCharacters'
 import { getLayout } from '@/components/UI/Layout'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
 
 import s from './characters.module.scss'
+
+import { FilterItems } from '../../components/UI/FilterItems'
 
 export const getStaticProps = async () => {
   const characters = await getCharacters()
@@ -63,7 +64,7 @@ function Characters(props: PropsType) {
     <>
       <HeadMeta title={'Characters'} />
       <div className={s.container}>
-        <FilterCharacters
+        <FilterItems
           searchByName={filterByName}
           setGender={filterByGender}
           setStatus={filterByStatus}

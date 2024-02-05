@@ -15,9 +15,13 @@ export const Header = () => {
       <Link href={'/'}>
         <Image alt={'Rick_and_Morty.svg'} src={rickAndMortyImage} width={300} />
       </Link>
-      <button>
-        <Image alt={'Rick_and_Morty.svg'} src={buttonDark} width={100} />
-      </button>
+
+      <Image
+        alt={'Rick_and_Morty.svg'}
+        onClick={() => alert('click')}
+        src={buttonDark}
+        width={100}
+      />
     </header>
   )
 }

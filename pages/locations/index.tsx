@@ -1,16 +1,17 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import { getLocations } from '@/assets/api'
 import { LocationType, ResponseType } from '@/assets/api/types'
 import { useLocations } from '@/assets/hooks/useLocations'
 import { HeadMeta } from '@/components/HeadMeta'
-import { FilterLocations } from '@/components/UI/FilterLocations'
 import { getLayout } from '@/components/UI/Layout'
-import { LocationCard } from '@/components/UI/LocationCard'
+import { LocationsCard } from '@/components/UI/LocationsCard'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
 
 import s from './locations.module.scss'
+
+import { FilterItems } from '../../components/UI/FilterItems'
 
 export const getStaticProps = async () => {
   const locations = await getLocations()
@@ -48,7 +49,7 @@ function Locations(props: PropsType) {
   const locationItems = filteredLocations?.results.map(location => (
     <li key={location.id}>
       <Link href={`/locations/${location.id}`}>
-        <LocationCard location={location} />
+        <LocationsCard location={location} />
       </Link>
     </li>
   ))
@@ -57,7 +58,7 @@ function Locations(props: PropsType) {
     <>
       <HeadMeta title={'Locations'} />
       <div className={s.container}>
-        <FilterLocations searchByName={filterByName} />
+        <FilterItems searchByName={filterByName} />
         <ul className={s.locations}>{locationItems}</ul>
         {locations && (
           <Pagination

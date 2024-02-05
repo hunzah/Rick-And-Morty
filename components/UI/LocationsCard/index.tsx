@@ -1,18 +1,17 @@
 import React from 'react'
 
 import { LocationType, Nullable } from '@/assets/api/types'
-import { convertDateFormat } from '@/tools/helpers'
 
-import s from './location-card.module.scss'
+import s from './locations-card.module.scss'
 
 type PropsType = {
   location: Nullable<LocationType>
 }
-export const LocationCard = (props: PropsType) => {
+export const LocationsCard = (props: PropsType) => {
   if (!props.location) {
     return null
   }
-  const { created, dimension, name, residents, type, url } = props.location
+  const { dimension, name, residents, type } = props.location
 
   return (
     <div className={s.container}>
@@ -21,7 +20,6 @@ export const LocationCard = (props: PropsType) => {
       </div>
       <span>Dimension: {dimension}</span>
       <span>Type: {type}</span>
-      <span>created: {convertDateFormat('2017-11-10T12:42:04.162Z')}</span>
     </div>
   )
 }

@@ -1,17 +1,18 @@
 import React, { ChangeEvent, FC, ReactNode, useEffect, useState } from 'react'
 
+import s from './input.module.scss'
+
 interface PropsType {
   alias: string
-  children?: ReactNode
   className?: string
   debounce: number
-  error?: boolean
   errorText?: string
   onChange: (value: string) => void
+  placeholder: string
 }
 
 export const Input: FC<PropsType> = props => {
-  const { alias, children, debounce, error, errorText, onChange, ...rest } = props
+  const { alias, className, debounce, errorText, onChange, placeholder, ...rest } = props
   const [inputValue, setInputValue] = useState<string>('')
 
   useEffect(() => {
@@ -29,9 +30,12 @@ export const Input: FC<PropsType> = props => {
   }
 
   return (
-    <div>
-      <input name={alias} onChange={onChangeHandler} placeholder={' '} {...rest} />
-      <label htmlFor={alias}>{error ? errorText : children}</label>
-    </div>
+    <input
+      className={`${s.input} ${className}`}
+      name={alias}
+      onChange={onChangeHandler}
+      placeholder={placeholder}
+      {...rest}
+    />
   )
 }

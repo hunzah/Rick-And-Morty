@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { CharacterType, Nullable } from '@/assets/api/types'
-import { linkId } from '@/tools/regexes'
+import { linkId } from '@/tools/helpers'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import s from './characterCard.module.scss'
+import s from './character-card.module.scss'
 
 type PropsType = {
   character: Nullable<CharacterType>

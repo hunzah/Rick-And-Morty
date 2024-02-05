@@ -4,7 +4,7 @@ import { CharacterType, Nullable } from '@/assets/api/types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import s from './characterCard.module.scss'
+import s from './characters-card.module.scss'
 
 type PropsType = {
   character: Nullable<CharacterType>

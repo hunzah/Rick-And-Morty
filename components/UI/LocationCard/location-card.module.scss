@@ -1,0 +1,8 @@
+@import '@/styles/mixins';
+
+.container {
+  @include containerMixin;
+
+justify-content: flex-start;
+}
+

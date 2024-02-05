@@ -1,8 +1,12 @@
 .button {
-  width: 200px;
+  min-width: 150px;
+  padding: 8px;
+  border-radius: 4px;
 }
 
 .content {
+  z-index: 1  ;
+
   overflow: hidden;
 
   width: var(--radix-select-trigger-width);

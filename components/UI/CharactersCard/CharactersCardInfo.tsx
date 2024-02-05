@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CharacterType } from '@/assets/api/types'
-import { linkId } from '@/tools/regexes'
+import { linkId } from '@/tools/helpers'
 import Link from 'next/link'
 
 type PropsType = {

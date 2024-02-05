@@ -1,5 +1,6 @@
 .pagination {
   display: flex;
+  align-items: center;
 }
 
 .list {
@@ -14,13 +15,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-    width: 20px;
-
     list-style-type: none;
 
     &:hover {
       cursor: pointer;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+
+      width: 44px;
+      height: 48px;
+      padding: 16px;
+
+      font-size: 24px;
+
+      background-color: inherit;
     }
   }
 
@@ -34,9 +45,10 @@
   align-items: center;
   justify-content: center;
 
-  width: 20px;
+  width: 44px;
+  height: 48px;
 
-  border: none;
+  background-color: #382766;
 
   &:hover {
     cursor: pointer;

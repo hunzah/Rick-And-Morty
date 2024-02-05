@@ -2,6 +2,8 @@
 
 .container {
   @include containerMixin;
+
+  justify-content: flex-start;
 }
 
 .characters {

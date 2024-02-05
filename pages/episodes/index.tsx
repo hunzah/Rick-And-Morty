@@ -4,8 +4,8 @@ import { getEpisodes } from '@/assets/api'
 import { EpisodeType, ResponseType } from '@/assets/api/types'
 import { useEpisodes } from '@/assets/hooks/useEpisodes'
 import { HeadMeta } from '@/components/HeadMeta'
-import { EpisodeCard } from '@/components/UI/EpisodeCard'
-import { FilterEpisodes } from '@/components/UI/FilterEpisodes'
+import { EpisodesCard } from '@/components/UI/EpisodesCard'
+import { FilterItems } from '@/components/UI/FilterItems'
 import { getLayout } from '@/components/UI/Layout'
 import { Pagination } from '@/components/UI/Pagination'
 import Link from 'next/link'
@@ -47,9 +47,7 @@ function Episodes(props: PropsType) {
 
   const episodeItems = filteredEpisodes?.results.map(episode => (
     <li key={episode.id}>
-      <Link href={`/episodes/${episode.id}`} key={episode.id}>
-        <EpisodeCard episode={episode} />
-      </Link>
+      <EpisodesCard episode={episode} />
     </li>
   ))
 
@@ -57,7 +55,8 @@ function Episodes(props: PropsType) {
     <>
       <HeadMeta title={'Episodes'} />
       <div className={s.container}>
-        <FilterEpisodes searchByName={filterByName} />
+        <FilterItems searchByName={filterByName} />
+
         <ul className={s.episodes}>{episodeItems}</ul>
         {filteredEpisodes && (
           <Pagination

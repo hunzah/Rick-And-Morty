@@ -1,0 +1,44 @@
+@import '/styles/mixins';
+
+.container {
+  @include gradient-text-effect(red);
+  @include pressed-effect;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 310px;
+  padding: 4px;
+
+  //border: 1px blueviolet solid;
+}
+
+.name {
+  @include gradient-text-effect(red);
+}
+
+.number {
+  @include gradient-text-effect(green);
+}
+
+.container:hover {
+  .number {
+    background-position: 0;
+
+    &::before {
+      width: 0;
+    }
+  }
+
+  .name {
+    background-position: 0;
+
+    &::before {
+      width: 100%;
+    }
+  }
+}

@@ -19,7 +19,6 @@ export const Pagination = (props: PropsType) => {
 
   const totalPages = Math.ceil(totalElements / elementsPerPage)
 
-  // Функции для кнопок
   const prev = () => {
     onChange(currentPage - 1)
   }
@@ -37,7 +36,7 @@ export const Pagination = (props: PropsType) => {
         {pageNumbers.map((number: number | string, i: number) => (
           <li className={`${s.li} ${currentPage === number && s.selected}`} key={i}>
             {typeof number === 'number' ? (
-              <a onClick={() => onChange(number)}>{number}</a>
+              <button onClick={() => onChange(number)}>{number}</button>
             ) : (
               <span>{number}</span>
             )}

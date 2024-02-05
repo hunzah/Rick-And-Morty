@@ -18,8 +18,6 @@ function Episode() {
     <>
       <HeadMeta title={'Episode'} />
       <EpisodeCard episode={episode && episode} />
-      <br />
-      <a href={'https://www.adultswim.com/videos/rick-and-morty'}> go watch)</a>
     </>
   )
 }

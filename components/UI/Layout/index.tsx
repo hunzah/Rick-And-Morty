@@ -1,9 +1,8 @@
 import React, { PropsWithChildren, ReactElement } from 'react'
 
+import { Footer } from '@/components/UI/Footer'
 import { Header } from '@/components/UI/Header'
-import nextJsImage from '@/public/next.svg'
 import { NextPage } from 'next'
-import Image from 'next/image'
 
 import s from './layout.module.scss'
 
@@ -26,13 +25,4 @@ export const Layout: NextPage<PropsWithChildren> = props => {
 
 export const getLayout = (page: ReactElement) => {
   return <Layout>{page}</Layout>
-}
-
-const Footer = () => {
-  return (
-    <footer className={s.footer}>
-      <Image alt={'next.svg'} src={nextJsImage} width={80} />
-      footer
-    </footer>
-  )
 }
